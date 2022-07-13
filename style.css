@@ -161,8 +161,7 @@ body {
     float: left;
 }
 
-.clear,
-.undo {
+.clear {
     float: right;
     padding: 5px 15px;
 }

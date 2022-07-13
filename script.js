@@ -104,8 +104,6 @@ Don’t try making them by hand with copy and pasting in your HTML file!
 
     initValue()
 
-
-
 /* 
 STEP 4: Add a button to the top of the screen that will send the user a popup asking for the number of squares per side for the new grid. Once entered, the existing grid should be removed and a new grid should be generated in the same total space as before (e.g. 960px wide) so that you’ve got a new sketch pad. Tip: Set the limit for the user input to a maximum of 100. A larger number of squares results in more computer resources being used, potentially causing delays, freezing, or crashing that we want to prevent.
  */
@@ -158,7 +156,7 @@ buttonsContainer.appendChild(btnBig, container);
             while (i < grid) {
                 const gridElement = document.createElement('div');
                 gridElement.className = 'grid-element';
-                gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
+                gridElement.style.outline = '1px solid rgb(0 0 0 / 5%)'
                 container.appendChild(gridElement);
                 i++
             }
@@ -183,7 +181,6 @@ buttonsContainer.appendChild(btnBig, container);
     }
 
     function mediumGridStyle() {
-        
         // Clear Old Grid Before Inserting New One
         const previousGridLength = container.childElementCount;
         for (let i = 0; i < previousGridLength; i++) {
@@ -198,7 +195,7 @@ buttonsContainer.appendChild(btnBig, container);
             while (i < grid) {
                 const gridElement = document.createElement('div');
                 gridElement.className = 'grid-element';
-                gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
+                gridElement.style.outline = '1px solid rgb(0 0 0 / 5%)'
                 container.appendChild(gridElement);
                 i++
             }
@@ -223,7 +220,6 @@ buttonsContainer.appendChild(btnBig, container);
     }
 
     function bigGridStyle() {
-        
         // Clear Old Grid Before Inserting New One
         const previousGridLength = container.childElementCount;
         for (let i = 0; i < previousGridLength; i++) {
@@ -238,7 +234,7 @@ buttonsContainer.appendChild(btnBig, container);
             while (i < grid) {
                 const gridElement = document.createElement('div');
                 gridElement.className = 'grid-element';
-                gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
+                gridElement.style.outline = '1px solid rgb(0 0 0 / 5%)'
                 container.appendChild(gridElement);
                 i++
             }
@@ -262,10 +258,8 @@ buttonsContainer.appendChild(btnBig, container);
     
     }
 
-// Add clear & undo buttons functionality
+// Add clear button functionality
 const btnClear = document.querySelector('.clear');
-const btnUndo = document.querySelector('.undo');
-
 btnClear.addEventListener('click', () => {
     const gridElements = document.querySelectorAll('.grid-element');
     gridElements.forEach(gridElement => {
