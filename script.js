@@ -62,17 +62,21 @@ Don’t try making them by hand with copy and pasting in your HTML file!
         } */
 
         // ---------METHOD D: GRID---------
-        /* const container = document.querySelector('.container');
-        container.style.width = '100vw';
-        container.style.height = '100vh';
-        container.style.backgroundColor = 'yellow';
-        container.style.setProperty('display', 'grid');
-        container.style.setProperty('grid-template-columns', 'repeat(16, 1fr)');
+        const container = document.querySelector('.container');
+        container.style.cssText = 'width: 100vw; height: 100vh; display: grid; grid-template-columns: repeat(16, 1fr);';
         
         let i = 0;
         while (i < 256) {
-            const div = document.createElement('div');
-            container.appendChild(div);
-            div.style.setProperty('outline', '1px solid red ');
+            const gridPiece = document.createElement('div');
+            gridPiece.className = 'grid-piece';
+            container.appendChild(gridPiece);
             i++
-        } */
+        }
+
+// Add Mouse Hover Event
+const divGrid = document.getElementsByClassName('grid-piece');
+Array.from(divGrid).forEach(gridDiv => {
+    gridDiv.addEventListener('mouseenter', (e) => {
+        e.target.style.backgroundColor = 'black';
+    })
+})
