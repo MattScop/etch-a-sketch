@@ -60,9 +60,11 @@ Don’t try making them by hand with copy and pasting in your HTML file!
             div.style.setProperty('outline', '1px solid red ');
             i++
         } */
-
+        
         // ---------METHOD D: GRID---------
+        const outerContainer = document.querySelector('.outer-container');
         const container = document.querySelector('.container');
+        const buttonsContainer = document.querySelector('.buttons-container');
 
         // Set Initial Values for the Grid on page load
         function initValue() {
@@ -109,57 +111,164 @@ STEP 4: Add a button to the top of the screen that will send the user a popup as
  */
 
 // Add & Style Change Grid Button
-const outerContainer = document.querySelector('.outer-container');
-const btn = document.createElement('button');
-btn.classList.add('gridStyleButton');
-const btnText = document.createTextNode('Change Grid Style');
-btn.appendChild(btnText);
-outerContainer.insertBefore(btn, container);
+const btnSmall = document.createElement('button');
+const btnMedium = document.createElement('button');
+const btnBig = document.createElement('button');
+btnSmall.className = 'gridStyleButton small';
+btnMedium.className = 'gridStyleButton medium';
+btnBig.className = 'gridStyleButton big';
+const btnTextSmall = document.createTextNode('Small Grid');
+const btnTextMedium = document.createTextNode('Medium Grid');
+const btnTextBig = document.createTextNode('Big Grid');
+
+btnSmall.appendChild(btnTextSmall);
+btnMedium.appendChild(btnTextMedium);
+btnBig.appendChild(btnTextBig);
+buttonsContainer.appendChild(btnSmall, container);
+buttonsContainer.appendChild(btnMedium, container);
+buttonsContainer.appendChild(btnBig, container);
 
     // Add Button Functionality
-    btn.addEventListener('click', askGridStyle);
+    btnSmall.addEventListener('click', smallGridStyle);
+    btnMedium.addEventListener('click', mediumGridStyle);
+    btnBig.addEventListener('click', bigGridStyle);
 
-function askGridStyle() {
-    // Prompt
-    const gridSideValue = Number(prompt('Insert a new value for the grid (max: 100)', 16));
-    if (gridSideValue > 100) {
-        alert('Maximum input is 100');
-        return
-    }
-    
-    // Clear Old Grid Before Inserting New One
-    const previousGridLength = container.childElementCount;
-    for (let i = 0; i < previousGridLength; i++) {
-        container.removeChild(container.lastChild);
-    }
-
-    // Add New Grid
-    const grid = gridSideValue * gridSideValue;
-    container.style.setProperty('--gridSideValue', gridSideValue);
-    let i = 0;
-        while (i < grid) {
-            const gridElement = document.createElement('div');
-            gridElement.className = 'grid-element';
-            gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
-            container.appendChild(gridElement);
-            i++
+    function smallGridStyle() {
+        /* 
+        REMOVED PROMPT AND ADDED BUTTONS FOR GRID
+        // // Prompt
+        // const gridSideValue = Number(prompt('Insert a new value for the grid (max: 100)', 16));
+        // if (gridSideValue > 100) {
+        //     alert('Maximum input is 100');
+        //     return
+        // }
+         */
+        
+        // Clear Old Grid Before Inserting New One
+        const previousGridLength = container.childElementCount;
+        for (let i = 0; i < previousGridLength; i++) {
+            container.removeChild(container.lastChild);
         }
-
-    // Add Mouse Event
-    const gridElements = document.querySelectorAll('.grid-element');
-    const arrGrid = Array.from(gridElements);
-
-    for (let j = 0; j < arrGrid.length; j++) {
-        arrGrid[j].addEventListener('mousedown', (e) => {
-            e.preventDefault()
-            e.target.style.backgroundColor = 'black';
-        }) // Color first cell on mouse click
-
-        arrGrid[j].addEventListener('mouseenter', (e) => {
-            if (e.which === 1) {
-            e.target.style.backgroundColor = 'black';
-            } // Change BG only if mouse is down 
-        })
+    
+        // Add New Grid
+        const gridSideValue = 32;
+        const grid = gridSideValue * gridSideValue;
+        container.style.setProperty('--gridSideValue', gridSideValue);
+        let i = 0;
+            while (i < grid) {
+                const gridElement = document.createElement('div');
+                gridElement.className = 'grid-element';
+                gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
+                container.appendChild(gridElement);
+                i++
+            }
+        
+        // Add Mouse Event
+        const gridElements = document.querySelectorAll('.grid-element');
+        const arrGrid = Array.from(gridElements);
+        
+        for (let j = 0; j < arrGrid.length; j++) {
+            arrGrid[j].addEventListener('mousedown', (e) => {
+                e.preventDefault()
+                e.target.style.backgroundColor = 'black';
+            }) // Color first cell on mouse click
+        
+            arrGrid[j].addEventListener('mouseenter', (e) => {
+                if (e.which === 1) {
+                e.target.style.backgroundColor = 'black';
+                } // Change BG only if mouse is down 
+            })
+        }
+    
     }
 
-}
+    function mediumGridStyle() {
+        
+        // Clear Old Grid Before Inserting New One
+        const previousGridLength = container.childElementCount;
+        for (let i = 0; i < previousGridLength; i++) {
+            container.removeChild(container.lastChild);
+        }
+    
+        // Add New Grid
+        const gridSideValue = 64;
+        const grid = gridSideValue * gridSideValue;
+        container.style.setProperty('--gridSideValue', gridSideValue);
+        let i = 0;
+            while (i < grid) {
+                const gridElement = document.createElement('div');
+                gridElement.className = 'grid-element';
+                gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
+                container.appendChild(gridElement);
+                i++
+            }
+        
+        // Add Mouse Event
+        const gridElements = document.querySelectorAll('.grid-element');
+        const arrGrid = Array.from(gridElements);
+        
+        for (let j = 0; j < arrGrid.length; j++) {
+            arrGrid[j].addEventListener('mousedown', (e) => {
+                e.preventDefault()
+                e.target.style.backgroundColor = 'black';
+            }) // Color first cell on mouse click
+        
+            arrGrid[j].addEventListener('mouseenter', (e) => {
+                if (e.which === 1) {
+                e.target.style.backgroundColor = 'black';
+                } // Change BG only if mouse is down 
+            })
+        }
+    
+    }
+
+    function bigGridStyle() {
+        
+        // Clear Old Grid Before Inserting New One
+        const previousGridLength = container.childElementCount;
+        for (let i = 0; i < previousGridLength; i++) {
+            container.removeChild(container.lastChild);
+        }
+    
+        // Add New Grid
+        const gridSideValue = 100;
+        const grid = gridSideValue * gridSideValue;
+        container.style.setProperty('--gridSideValue', gridSideValue);
+        let i = 0;
+            while (i < grid) {
+                const gridElement = document.createElement('div');
+                gridElement.className = 'grid-element';
+                gridElement.style.outline = '0.5px solid rgb(0 0 0 / 5%)'
+                container.appendChild(gridElement);
+                i++
+            }
+        
+        // Add Mouse Event
+        const gridElements = document.querySelectorAll('.grid-element');
+        const arrGrid = Array.from(gridElements);
+        
+        for (let j = 0; j < arrGrid.length; j++) {
+            arrGrid[j].addEventListener('mousedown', (e) => {
+                e.preventDefault()
+                e.target.style.backgroundColor = 'black';
+            }) // Color first cell on mouse click
+        
+            arrGrid[j].addEventListener('mouseenter', (e) => {
+                if (e.which === 1) {
+                e.target.style.backgroundColor = 'black';
+                } // Change BG only if mouse is down 
+            })
+        }
+    
+    }
+
+// Add clear & undo buttons functionality
+const btnClear = document.querySelector('.clear');
+const btnUndo = document.querySelector('.undo');
+
+btnClear.addEventListener('click', () => {
+    const gridElements = document.querySelectorAll('.grid-element');
+    gridElements.forEach(gridElement => {
+        gridElement.style.backgroundColor = '';
+    })
+})

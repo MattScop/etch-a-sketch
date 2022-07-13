@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+
 * {
     box-sizing: border-box;
+}
+
+h1,
+h2 {
+    font-family: 'Grechen Fuemen', sans-serif;
 }
 
 body {
@@ -13,6 +20,8 @@ body {
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(161,238,9,1) 100%);
 }
 
 .outer-container {
@@ -23,6 +32,14 @@ body {
     background: linear-gradient(360deg, rgba(255,255,255,1) -100%, rgba(255,0,0,1) 100%);
     position: relative;
     box-shadow: inset 0 0 10px -1px hsl(0deg 0% 0% / 30%), 0px 0 5px 0px hsl(0deg 0% 0% / 50%);
+}
+
+.title {
+    text-align: center;
+    font-size: 4rem;
+    margin: 0;
+    color: #d0ae85;
+    text-shadow: 0 0 0px hsl(0deg 0% 0% / 55%);
 }
 
 .container {
@@ -71,13 +88,68 @@ body {
     box-shadow: inset 0 0 5px 0px hsl(0deg 0% 0% / 25%), 0px 0px 20px -4px hsl(0deg 0% 0% / 25%);
 }
 
-.gridStyleButton {
-    padding: 10px 25px;
-    font-size: 1.1rem;
+.arrow {
+    width: 0;
+    height: 0;
+    filter: drop-shadow(0px 0px 5px hsl(0deg 0% 0% / 50%));
+}
+
+.arrow-left-right-container {
+    position: absolute;
+    bottom: 200px;
+    left: 30px;
+    display: flex;
+    gap: 12px;
+}
+
+.arrow-up-down-container {
+    position: absolute;
+    bottom: 175px;
+    right: 63px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.arrow.left {
+    border-left: 25px solid transparent;
+    border-right: 25px solid lightgoldenrodyellow;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+}
+
+.arrow.right {
+    border-left: 25px solid lightgoldenrodyellow;
+    border-right: 25px solid transparent;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+}
+
+.arrow.up {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid lightgoldenrodyellow;
+}
+
+.arrow.down {
+    border-left: 25px solid transparent;
+    border-right: 25px solid transparent;
+    border-top: 25px solid lightgoldenrodyellow;
+    border-bottom: 25px solid transparent;
+}
+
+.buttons-container {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+.gridStyleButton {
+    padding: 10px 25px;
+    font-size: 1.1rem;
     background-color: lightgoldenrodyellow;
     border-radius: 5px 5px 50% 50%;
     color: #929248;
@@ -85,6 +157,14 @@ body {
     box-shadow: 0px 0px 8px 0px hsl(0deg 0% 0% / 50%), inset 0 0 5px 0px hsl(0deg 0% 0% / 50%);
     border-style: none;
     cursor: pointer;
+    margin: 0 5px;
+    float: left;
+}
+
+.clear,
+.undo {
+    float: right;
+    padding: 5px 15px;
 }
 
 .gridStyleButton:active {
