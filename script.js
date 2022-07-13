@@ -66,7 +66,7 @@ Don’t try making them by hand with copy and pasting in your HTML file!
 
         // Set Initial Values for the Grid on page load
         function initValue() {
-        const gridSideValue = 16; // number of squares on one side of the grid
+        const gridSideValue = 32; // number of squares on one side of the grid
         const grid = gridSideValue * gridSideValue;
 
         container.style.setProperty('--gridSideValue', gridSideValue); // set custom property to be able to modify the grid later
@@ -109,11 +109,12 @@ STEP 4: Add a button to the top of the screen that will send the user a popup as
  */
 
 // Add & Style Change Grid Button
+const outerContainer = document.querySelector('.outer-container');
 const btn = document.createElement('button');
-btn.setAttribute('style', 'padding: 10px 25px; font-size: 1.1rem;');
+btn.classList.add('gridStyleButton');
 const btnText = document.createTextNode('Change Grid Style');
 btn.appendChild(btnText);
-document.body.insertBefore(btn, container);
+outerContainer.insertBefore(btn, container);
 
     // Add Button Functionality
     btn.addEventListener('click', askGridStyle);
