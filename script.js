@@ -656,3 +656,8 @@ const buttonDelete = document.querySelector('.gridStyleButton.del')
             buttonShadow.classList.remove('shadowActive')
         }
     })
+
+// ADD SOME RESPONSIVENESS FOR THOSE DEVICES WHOSE HEIGHT IS LESS THAN 1100PX
+if (window.screen.height < 1100) {
+    outerContainer.style.transform = 'scale(0.9)';
+}
