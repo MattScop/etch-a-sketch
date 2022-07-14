@@ -144,7 +144,8 @@ body {
     bottom: 0;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 65%;
+    height: 52px;
 }
 
 .gridStyleButton {
@@ -161,11 +162,46 @@ body {
     float: left;
 }
 
-.clear {
+.small,
+.medium,
+.big {
+    margin-top: 10px;
+}
+
+.small-buttons-container {
     float: right;
+    width: 37%;
+}
+
+.clear,
+.RGB,
+.shadow,
+.del {
     padding: 5px 15px;
+}
+
+.clear {
+    order: 2;
+    margin: 40px 0px 0px 220px;
+    position: absolute;
+    background-color: indianred;
+    color: navajowhite;
+    padding: 5px 12px;
+    border-radius: 50% 50% 50% 50%;
+    font-size: 16px;
 }
 
 .gridStyleButton:active {
     box-shadow: 0px 0px 5px 0px hsl(0deg 0% 0% / 50%), inset 0 0 10px 0px hsl(0deg 0% 0% / 50%);
+}
+
+/* JS CLASSES */
+.rgbActive,
+.shadowActive,
+.delActive {
+    background-color: yellow;
+    box-shadow: 0px 0px 5px 0px hsl(0deg 0% 0% / 50%), inset 0 0 10px 0px hsl(0deg 0% 0% / 50%);
+}
+.grid-element {
+    background-color: rgba(0 0 0 / var(--addShadow));
 }
